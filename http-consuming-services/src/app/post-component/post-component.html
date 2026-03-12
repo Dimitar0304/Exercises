@@ -1,0 +1,10 @@
+
+<input (keyup.enter)="createPost(title)" type="text" #title>
+
+<div *ngFor="let p of posts">
+  {{p.id}} - {{p.title}}
+  <button class="btn btn-sm" (click)="p.isClicked=true">Update</button>
+  <button class="btn btn-sm" (click)="dPost(p)">Delete</button>
+  <input *ngIf="p.isClicked==true" #updatedTitle type="text" (keyup.enter)="updatePost(updatedTitle,p)">
+</div>
+
